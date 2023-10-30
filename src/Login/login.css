@@ -1,0 +1,34 @@
+body{
+    background-color: rgb(128, 132, 247);
+}
+.allForm{
+    background-color: rgb(255, 255, 255);
+    padding: 70px 30px;
+    border-radius: 5px;
+    height: 300px;
+    width: 400px;
+    text-align: center;
+    margin-left: 530px;
+    margin-top: 140px;
+}
+
+.label{
+    text-align: left;
+    font-size: large;
+    margin-left: 50px;
+    margin-bottom: 0;
+}
+
+.form{
+    height: 40px;
+    width: 300px;
+    border-radius: 5px;
+}
+
+.submit{
+    margin-top: 20px;
+    border-radius: 4px;
+    width: 100px;
+    height: 30px;
+}
+

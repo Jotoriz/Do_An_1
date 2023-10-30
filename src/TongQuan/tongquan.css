@@ -1,0 +1,51 @@
+.left{
+    text-align: center;
+    height: 100vh;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.right{
+
+    height: 100vh;
+    background-color: rgb(134, 247, 211);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+.logo{
+    text-align: center;
+}
+.logo img{
+    height: 80px;
+}
+.left p {
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    padding: 4px;
+    font-weight: 600;
+    color: rgb(1, 109, 204);
+    text-align: center;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.left p::before {
+    content: attr(data-text);
+    position: absolute;
+    padding-top: 3px;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background-color: rgb(102, 179, 248);
+    opacity: 0;
+    transition: width 0.5s, opacity 0.5s;
+}
+
+.left p:hover::before {
+    width: 100%;
+    opacity: 1;
+}
+
+.left p:hover {
+    color: white;
+}
