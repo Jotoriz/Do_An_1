@@ -1,15 +1,15 @@
-body{
+/* body{
     background-color: rgb(128, 132, 247);
-}
+} */
 .allForm{
-    background-color: rgb(255, 255, 255);
-    padding: 70px 30px;
+    background-color: rgb(3, 247, 255);
+    padding: 30px 30px;
     border-radius: 5px;
     height: 300px;
     width: 400px;
-    text-align: center;
     margin-left: 530px;
     margin-top: 140px;
+    border-radius: 10px;    
 }
 
 .label{
@@ -26,9 +26,13 @@ body{
 }
 
 .submit{
+    margin-left: 35%;
     margin-top: 20px;
     border-radius: 4px;
     width: 100px;
-    height: 30px;
+    height: 40px;
 }
 
+.allRegister{
+    height: 550px;
+}

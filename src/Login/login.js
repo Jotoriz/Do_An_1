@@ -1,67 +1,67 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Form, Button, Container, Row, Col } from "react-bootstrap";
 import "./login.css";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
+import AuthAction from "../actions/auth.actions";
 
 const Login = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const auth = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
 
   const handleUsernameChange = (e) => {
-    setUsername(e.target.value);
+    setEmail(e.target.value);
   };
-
   const handlePasswordChange = (e) => {
     setPassword(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Xử lý đăng nhập tại đây
+    const userData = {
+      email,
+      password,
+    };
+    dispatch(AuthAction.login(userData));
   };
-  const handleLinkClick = () => {
-    // Điều hướng đến trang mới
-    window.location.href = "/";
 
-    if (window.location.pathname === "/") {
-      window.location.reload();
-    }
-  };
+  if (auth.authenticate) {
+    return <Navigate to="/" />;
+  }
+
   return (
     <Container>
-      <Row>
-        <Col className="allForm">
+      <Row className="justify-content-center">
+        <Col xs={12} md={6} className="allForm">
           <h2 className="text-center">Login</h2>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-              <Form.Label className="label">
-                <p className="label">Email</p>
-              </Form.Label>
+              <Form.Label>Email</Form.Label>
               <Form.Control
+                name="email"
                 type="text"
                 placeholder="Enter your Email"
-                value={username}
+                value={email}
                 onChange={handleUsernameChange}
-                className="form"
               />
             </Form.Group>
             <Form.Group controlId="password">
-              <Form.Label>
-                <p className="label">Password</p>
-              </Form.Label>
+              <Form.Label>Password</Form.Label>
               <Form.Control
+                name="password"
                 type="password"
                 placeholder="Enter your password"
                 value={password}
                 onChange={handlePasswordChange}
-                className="form"
               />
             </Form.Group>
-            <Link to="/" onClick={handleLinkClick}>
-              <Button className="submit primary" type="submit" block>
-                Login
-              </Button>
-            </Link>
+            <Button className="submit primary" type="submit" block>
+              Login
+            </Button>
           </Form>
         </Col>
       </Row>
